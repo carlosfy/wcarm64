@@ -13,11 +13,11 @@
 
 
 //------------- CONSTANTS --------------//
-.set READ_SYSCALL, 3             // Syscall number for read
-.set WRITE_SYSCALL, 4            // Syscall number for write
-.set OPENAT_SYSCALL, 463         // Syscall number for openat
-.set CLOSE_SYSCALL, 6            // Syscall number for close
-.set EXIT_SYSCALL, 1             // Syscall number for exit
+.set READ_SYSCALL, 63             // Syscall number for read
+.set WRITE_SYSCALL, 64            // Syscall number for write
+.set OPENAT_SYSCALL, 56         // Syscall number for openat
+.set CLOSE_SYSCALL, 57            // Syscall number for close
+.set EXIT_SYSCALL, 93             // Syscall number for exit
 .set STDIN_FD, 0                 // File descriptor for stdin
 .set STDOUT_FD, 1                // File descriptor for stdout
 
