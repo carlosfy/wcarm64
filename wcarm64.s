@@ -85,6 +85,12 @@ buf_for_itoa:
     .align 4
 
 _start:
+    // In Aarch64, argc and argv are passed on the stack:
+    // - argc is the last element on the stack (at [sp])
+    // - argv is an array of pointers, starting at sp + 8 
+    ldr X0, [sp]                 // Store argc in X0
+    add X1, sp, #8               // X1 points to argv (array of argument pointers)
+
     // To start, X0 is argc and X1 is the address where we can find
     // quads of addresses pointing to the items in argv.
 
