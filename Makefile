@@ -1,8 +1,14 @@
+ifdef DEBUG
+DEBUGFLAGS = -g
+else
+DEBUGFLAGS = 
+endif
+
 AS = as
-ASFLAGS =
+ASFLAGS = $(DEBUGFLAGS)
 XCRUN = xcrun
 LD = ld
-LDFLAGS = -lSystem -syslibroot `$(XCRUN) -sdk macosx --show-sdk-path`
+LDFLAGS = 
 
 all: 	wcarm64
 
@@ -13,4 +19,4 @@ wcarm64: wcarm64.o
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -f *.o wcarm64 a.out
+	rm -f *.o wcarm64 
