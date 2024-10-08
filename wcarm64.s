@@ -117,8 +117,8 @@ _start:
     mov X0, #AT_FDCWD
     mov X2, #O_RDONLY
     mov X3, #OPEN_NO_MODE
-    mov X16, #OPENAT_SYSCALL
-    svc #0x80
+    mov X8, #OPENAT_SYSCALL
+    svc #0
 
     // Ignore files that can't be opened
     cmp X0, #0
@@ -138,7 +138,7 @@ _start:
     // Call close(fd)
     mov X8, CLOSE_SYSCALL
     pop X0                       // restore fd from the stack
-    svc #0x80
+    svc #0
 
 .L_next_argv:
     add X21, X21, #1
@@ -166,8 +166,8 @@ _start:
 .L_wcarm64_exit:
     // exit(0)
     mov X0, #0
-    mov X16, EXIT_SYSCALL
-    svc #0x80
+    mov X8, EXIT_SYSCALL
+    svc #0
 
 //---------------- FUNCTIONS ----------------//
 
@@ -210,8 +210,8 @@ count_in_file:
     mov X0, X9
     mov X1, X13
     mov X2, READBUFLEN
-    mov X16, READ_SYSCALL
-    svc #0x80
+    mov X8, READ_SYSCALL
+    svc #0
 
     // From here on, X0 holds the number of bytes actually read from the
     // file (the return value of read())
@@ -296,12 +296,12 @@ print_cstring:
     sub X2, X1, X0
     // Now that we have the length, we can call sys_write
     // sys_write(unsigned fd, char* buf, size_t count)
-    mov X16, WRITE_SYSCALL
+    mov X8, WRITE_SYSCALL
     // Populate address of string into X1 first, because the later
     // assignment of fd clobbers X0.
     mov X1, X0
     mov X0, STDOUT_FD
-    svc #0x80
+    svc #0
     ret
 
 // Function print_counters
