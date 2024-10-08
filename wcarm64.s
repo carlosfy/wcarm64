@@ -23,7 +23,7 @@
 
 .set O_RDONLY, 0x0
 .set OPEN_NO_MODE,   0666
-.set AT_FDCWD, -2
+.set AT_FDCWD, -100
 .set READBUFLEN, 16384
 .set ITOABUFLEN, 12
 .set NEWLINE, '\n'
