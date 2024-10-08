@@ -80,11 +80,11 @@ buf_for_itoa:
 
 
 //---------------- "MAIN" CODE ----------------//
-    .global _main
+    .global _start
     .text
     .align 4
 
-_main:
+_start:
     // To start, X0 is argc and X1 is the address where we can find
     // quads of addresses pointing to the items in argv.
 
