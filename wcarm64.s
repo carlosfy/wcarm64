@@ -47,8 +47,8 @@
 
 // Load the address of a label into a register
 .macro load_addr reg, label
-    adrp \reg, \label@PAGE
-    add \reg, \reg, \label@PAGEOFF
+    adrp \reg, \label
+    add \reg, \reg, :lo12:\label
 .endm
 
 //---------------- DATA ----------------//
